@@ -34,18 +34,18 @@ function modalHTML(profile) {
   </div>
 </div>`;
 }
-
+//create modal window + buttons functionlities
 function createModal(profile, data) {
   const modalDiv = document.createElement("div");
   modalDiv.setAttribute("class", "modal-container");
   modalDiv.setAttribute("id", "modal-container");
   document.body.insertBefore(modalDiv, gallery.nextElementSibling);
   modalDiv.innerHTML = modalHTML(profile);
-
+  //close button event
   document
     .getElementById("modal-close-btn")
     .addEventListener("click", () => modalDiv.remove());
-
+  //next button
   document.getElementById("modal-next").addEventListener("click", () => {
     let index = data.indexOf(profile);
     console.log(index, data.length);
@@ -54,7 +54,7 @@ function createModal(profile, data) {
       modalDiv.innerHTML = modalHTML(data[index + 1]);
     }
   });
-
+  //previous button
   document.getElementById("modal-prev").addEventListener("click", () => {
     let index = data.indexOf(profile);
     if (index > 0) {
