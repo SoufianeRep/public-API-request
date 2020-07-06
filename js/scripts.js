@@ -110,9 +110,7 @@ fetchprofile("https://randomuser.me/api/?results=12").then((data) => {
           x.name.last.toLowerCase().includes(search.value.toLowerCase())
       );
       gallery.innerHTML = "";
-      filteredData.forEach((profile) =>
-        createProfileCard(profile, filteredData)
-      );
+      filteredData.map((profile) => createProfileCard(profile, filteredData));
     } else {
       gallery.innerHTML = "";
       data.map((profile) => createProfileCard(profile, data));
